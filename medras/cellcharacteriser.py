@@ -39,6 +39,9 @@
 import numpy as np
 import scipy.special
 
+# Size of large deletion event
+largeDelSize   = 3.0
+
 class CellCharacteriser:
 	# Buffer to store different parameter sets, more efficient
 	storedCellParameters = {}
@@ -97,7 +100,6 @@ class CellCharacteriser:
 		interChromRate = 1-intraChromRate
 
 		# Calculate large deletion (>3MBP) rate. 
-		largeDelSize   = 3.0
 		largeDelRadius = pow(largeDelSize/dna,1.0/3.0)
 		delFraction    = 1-self.theta(chromosomeRadius,largeDelRadius)/self.theta(chromosomeRadius)
 
@@ -141,7 +143,6 @@ class CellCharacteriser:
 		# For full deletions, only consider those sizes which are non-lethal and in-chromosome
 		chromosomeRadius = pow(chromosomes,-1.0/3.0)
 		inChromRate = self.theta(chromosomeRadius)
-		largeDelSize = 3.0
 		maxBreak = max(largeDelSize-geneSize,0)
 	
 		# Integrate over break sizes for full deletion, calculating rate of at least that size

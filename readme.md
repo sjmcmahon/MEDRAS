@@ -141,6 +141,10 @@ This code is written in python3, and requires the following libraries:
 - numpy
 - scipy
 
+## Update history
+
+21/03/31: Code push to syncrhonise repositories ahead of general release. Only minor trimming of some unused variables from previous version.
+
 ## Contacts
 
 For questions/comments/bug reports, please contact stephen.mcmahon (at) qub.ac.uk

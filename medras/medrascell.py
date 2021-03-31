@@ -194,7 +194,6 @@ class singleCell:
 		self.trackEta = trackParams[0]
 		self.eta = self.misrepairParams[0]
 
-
 		# Initialise cell damage array:
 		# Current numbers of breaks, clustering parameter for each pathway, and total misrepaired
 		cellDamage = [0,0,0,0,0,0,0] 
@@ -237,7 +236,7 @@ class singleCell:
 		if repairedBreaks < 1E-10: return 0
 
 		atanNum = np.sqrt(3)*eta*repairedBreaks
-		atanDen = 2+eta*(2*initialBreaks*finalBreaks*eta + initialBreaks+finalBreaks) 
+		atanDen = 2+eta*(2*initialBreaks*finalBreaks*eta + initialBreaks + finalBreaks) 
 		return 1 - 2 * np.arctan(atanNum/atanDen) / (repairedBreaks*np.sqrt(3)*eta)
 
 	# Analytic model of repair kinetics. Can return multiple timepoints
