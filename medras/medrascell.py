@@ -51,7 +51,7 @@ class singleCell:
 						'fastRepair': 2.081,'fastFociDelay': 8.079, 'slowRepair': 0.2604, 
 						'slowFociDelay': 0.4053,'verySlowRepair': 0.008462, 
 						'complexFrac': 0.4337, 'pointMutationRate': 0.04605,   'failFrac': 0.7364,
-						'rNuc': 4.282 }
+						'rNuc': 4.2293}
 	defaultSurvParams= {'apoptoticRate': 0.01117, 'mitoticRate': 0.0141, 'baseRate': 0.000739}
 	defaultCell = {'dna':6100.0,'chromosomes':46,'repair':0,'G1Arrest':1,'phase':0,'gene':0}
 
@@ -368,9 +368,9 @@ class singleCell:
 			tempExp = exptCond.copy()
 			tempExp['time']=[exptCond['time'],-1]
 			damageInfo = self.modelExposure(tempExp)
-			if self.cellLine['G1Arrest']==1:
+			if self.cellLine['G1Arrest']>0:
 				breaksAtProliferation = damageInfo[0][0]
-				apoptoticSurvival = np.exp(-breaksAtProliferation*self.survParams['apoptoticRate'])
+				apoptoticSurvival = np.exp(-self.cellLine['G1Arrest']*breaksAtProliferation*self.survParams['apoptoticRate'])
 			else:
 				apoptoticSurvival = 1.0
 

@@ -39,7 +39,7 @@ In order, these are:
 - DNA content: in MBP, for the full genetic content of the cell (e.g. 6100 MBP for human diploid cells).
 - Chromosome number (total);
 - Repair defect: stored as a bit mask, 0 for normal cells, 1 for Non-homologous end joining-defective, 2 for homologous recombination-defective, and 3 for double-defect cells;
-- G1Arrest status: Whether the G1 arrest checkpoint is fully active (1) or defective (0). This defective checkpoint is heavily associated with p53 activity, with many p53 mutant cells losing this checkpoint;
+- G1Arrest status: Activity of the G1 arrest checkpoint. This can be any value between fully active (1) or fully defective (0). This defective checkpoint is heavily associated with p53 activity, with many p53 mutant cells losing this checkpoint;
 - Phase: The cell cycle phase of the cell, defined as an integer from 0-3 (from G1 to M, respectively). -1 can be used to simulate an asynchronous population for survival endpoints;
 - Gene size: in MBP, this defines the size of a gene of interest for simulating mutation rates, if desired.
 
@@ -140,10 +140,6 @@ This code is written in python3, and requires the following libraries:
 
 - numpy
 - scipy
-
-## Update history
-
-21/03/31: Code push to syncrhonise repositories ahead of general release. Only minor trimming of some unused variables from previous version.
 
 ## Contacts
 

@@ -227,7 +227,7 @@ class CellCharacteriser:
 		slowRepair     = self.complexFrac
 		verySlowRepair = 0
 
-		# NHEJ defective - fast component fails, in all phases
+		# NHEJ defective - fast component fails, in all phases, and slow in G1
 		if repairDefect % 2 == 1:
 			verySlowRepair = verySlowRepair + fastRepair*self.failFrac
 			fastRepair     = fastRepair*(1-self.failFrac)
